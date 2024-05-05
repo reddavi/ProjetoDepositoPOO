@@ -87,4 +87,12 @@ public class SistemaDeposito implements InterfaceDeposito {
     public void zerarEstoque(){
         itens.clear();
     }
+
+    public Map<String, Item> getItens() {
+        return itens;
+    }
+
+    public void setItens(Map<String, Item> itens) {
+        this.itens = itens;
+    }
 }
