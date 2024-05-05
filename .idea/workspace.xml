@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5be112d3-f26e-4dde-bff1-0b2763072ea4" name="Changes" comment="Upando interface.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.src/main/java/org/example/BemVindoJanelaGUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.src/main/java/org/example/GravadorDeDados.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.src/main/java/org/example/InterfaceDeposito.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.src/main/java/org/example/Item.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.src/main/java/org/example/ItemInexistenteException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.src/main/java/org/example/SistemaDeposito.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.src/main/java/org/example/SistemaDepositoGUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.src/main/java/org/example/Sistemateste.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.src/main/java/org/example/estoque.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.src/main/java/org/example/tipoEstoqueCategoria.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.src/test/java/testePrograma.java" beforeDir="false" />
-    </list>
+    <list default="true" id="5be112d3-f26e-4dde-bff1-0b2763072ea4" name="Changes" comment="Upando interfaceGui,Janela de Apresentação" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -190,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1714936161028</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Upando interfaceGui,Janela de Apresentação">
+      <created>1714936325372</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1714936325372</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -208,6 +202,7 @@
     <MESSAGE value="Upando Enum" />
     <MESSAGE value="Upando algumas modifícações" />
     <MESSAGE value="Upando interface." />
-    <option name="LAST_COMMIT_MESSAGE" value="Upando interface." />
+    <MESSAGE value="Upando interfaceGui,Janela de Apresentação" />
+    <option name="LAST_COMMIT_MESSAGE" value="Upando interfaceGui,Janela de Apresentação" />
   </component>
 </project>
