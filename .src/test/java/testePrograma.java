@@ -22,7 +22,6 @@ import java.util.List;
           @Test
         public void testPesquisarItemExistente() throws ItemInexistenteException, IOException {
          SistemaDeposito deposito = new SistemaDeposito();
-         //Cadastrando a geladeira
         Item n1 = new Item("GELADEIRA", 20, tipoEstoqueCategoria.ELETRONICO);
         deposito.cadastrarItem(n1);
         System.out.println(deposito.pesquisarItem("GELADEIRA"));
