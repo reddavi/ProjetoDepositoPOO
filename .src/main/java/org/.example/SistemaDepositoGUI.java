@@ -22,8 +22,8 @@ public class SistemaDepositoGUI extends JFrame {
 
         sistemaDeposito = new SistemaDeposito();
 
-
-        JButton cadastrarButton = new JButton("Cadastrar Item");
+        ImageIcon cadastrar = new ImageIcon("cadastro.png");
+        JButton cadastrarButton = new JButton("Cadastrar Item",cadastrar);
         cadastrarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -31,7 +31,7 @@ public class SistemaDepositoGUI extends JFrame {
                 String quantidadeStr = JOptionPane.showInputDialog("Digite a quantidade do item:");
                 tipoEstoqueCategoria tipo = tipoEstoqueCategoria.valueOf(JOptionPane.showInputDialog("Informe a categoria: "));
                 int quantidade = Integer.parseInt(quantidadeStr);
-                Item item = new Item(nome, quantidade,tipo);
+                Item item = new Item(nome, quantidade, tipo);
                 try {
                     boolean cadastrado = sistemaDeposito.cadastrarItem(item);
                     if (cadastrado) {
@@ -46,7 +46,9 @@ public class SistemaDepositoGUI extends JFrame {
         });
         add(cadastrarButton);
 
-        JButton pesquisarButton = new JButton("Pesquisar Item");
+        //Função pesquisar
+        ImageIcon pesquisar = new ImageIcon("pesquisa.png");
+        JButton pesquisarButton = new JButton("Pesquisar Item",pesquisar);
         pesquisarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -63,7 +65,9 @@ public class SistemaDepositoGUI extends JFrame {
         });
         add(pesquisarButton);
 
-        JButton removerButton = new JButton("Remover Item");
+        //Função remover
+        ImageIcon remover = new ImageIcon("remover.png");
+        JButton removerButton = new JButton("Remover Item",remover);
         removerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -78,7 +82,9 @@ public class SistemaDepositoGUI extends JFrame {
         });
         add(removerButton);
 
-        JButton listarButton = new JButton("Listar Itens do Estoque");
+        //Função Listar
+        ImageIcon listaItens = new ImageIcon("listar.png");
+        JButton listarButton = new JButton("Listar Itens do Estoque", listaItens);
         listarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -92,17 +98,29 @@ public class SistemaDepositoGUI extends JFrame {
         });
         add(listarButton);
 
-        JButton contarButton = new JButton("Contar Quantidade do Estoque");
+        ///Função contar
+        ImageIcon contaQuant = new ImageIcon("contaQuantidade.png");
+        JButton contarButton = new JButton("Contador Estoque", contaQuant);
         contarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int quantidade = sistemaDeposito.contarQuantidadeDoEstoque();
-                JOptionPane.showMessageDialog(null, "Quantidade total de itens no estoque: " + quantidade);
+                List<Item> itens = sistemaDeposito.listarItens();
+                StringBuilder mensagem = new StringBuilder();
+                mensagem.append("Quantidade total de itens no estoque: ").append(sistemaDeposito.contarQuantidadeDoEstoque()).append("\n\n");
+
+                for (Item item : itens) {
+                    mensagem.append(item.getNome()).append(": ").append(item.getQuantidade()).append("\n");
+                }
+
+                JOptionPane.showMessageDialog(null, mensagem.toString());
             }
         });
         add(contarButton);
         setVisible(true);
-        JButton salvarButton = new JButton("Salvar");
+
+        ///Interface de salvar
+        ImageIcon salve = new ImageIcon("salvar.png");
+        JButton salvarButton = new JButton("Salvar", salve);
         salvarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -116,8 +134,9 @@ public class SistemaDepositoGUI extends JFrame {
             }
         });
         add(salvarButton);
-
-        JButton sairButton = new JButton("Sair");
+        //Função sair
+        ImageIcon sair = new ImageIcon("sair.png");
+        JButton sairButton = new JButton("Sair", sair);
         sairButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -125,11 +144,22 @@ public class SistemaDepositoGUI extends JFrame {
             }
         });
         add(sairButton);
-
         setVisible(true);
+
+        ImageIcon zerar = new ImageIcon("zerar.png");
+        JButton zerarButton = new JButton("Limpar estoque",zerar);
+        zerarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int confirmacao = JOptionPane.showConfirmDialog(null,"Tem certeza que quer zerar o estoque?","Confirmação",JOptionPane.YES_NO_OPTION);
+                if(confirmacao == JOptionPane.YES_NO_OPTION){
+                    sistemaDeposito.zerarEstoque();
+                    JOptionPane.showMessageDialog(null,"Estoque zerado com sucesso!");
+                }
+            }
+        });
+        add(zerarButton);
     }
-
-
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
@@ -141,48 +171,5 @@ public class SistemaDepositoGUI extends JFrame {
                 }
             }
         });
-    }
-    class BemVindoJanela extends JFrame {
-
-        public BemVindoJanela() {
-            // Configurações da janela de boas-vindas
-            setTitle("Bem-vindo ao Aplicativo de Depósito");
-            setSize(400, 200);
-            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            setLayout(new BorderLayout());
-
-            // Adiciona uma etiqueta com a mensagem de boas-vindas ao centro
-            JLabel mensagemLabel = new JLabel("Bem-vindo ao aplicativo de depósito!");
-            mensagemLabel.setHorizontalAlignment(JLabel.CENTER);
-            add(mensagemLabel, BorderLayout.CENTER);
-
-            // Adiciona um ícone de depósito à esquerda
-            ImageIcon iconDeposito = new ImageIcon("deposito_icon.png"); // Substitua "deposito_icon.png" pelo caminho do seu arquivo de ícone
-            JLabel iconLabel = new JLabel(iconDeposito);
-            add(iconLabel, BorderLayout.WEST);
-
-            // Adiciona um botão "Continuar" na parte inferior
-            JButton continuarButton = new JButton("Continuar");
-            continuarButton.addActionListener(e -> {
-                dispose(); // Fecha a janela de boas-vindas
-                abrirJanelaPrincipal(); // Abre a janela principal do aplicativo
-            });
-            add(continuarButton, BorderLayout.SOUTH);
-
-            // Centraliza a janela na tela
-            setLocationRelativeTo(null);
-
-            // Exibe a janela de boas-vindas
-            setVisible(true);
-        }
-
-        private void abrirJanelaPrincipal() {
-            // Abre a janela principal do aplicativo de gerenciamento de estoque
-            try {
-                new SistemaDepositoGUI();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
     }
 }
